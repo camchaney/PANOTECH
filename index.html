@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script language="javascript">
+      // Because this is running inside Electron we are allowed to use
+      // Node here.
+      const fs = require('fs');
+      // The directory that contains our images.
+      const dir = './images';
+
+      // What image we are currently displaying.
+      let imageIndex = 0;
+
+      // Updates the website HTML.
+      //
+      // @param the number of images in dir.
+      function updateHTML(numImages)
+      {
+	  imageIndex += 1;
+	  imageIndex = imageIndex % numImages;
+
+	  var div = document.getElementById("testImage");
+	  div.src = dir + "/" + imageIndex.toString(10) + ".jpg";
+      }
+
+      // First, gets the number of images that have been written to
+      // dir. Then, dispatches updateHTML to update the webpage.
+      function update()
+      {
+	  // The function inside of this gets called asynchronously
+	  // when fs has finished finding all of the images in dir.
+	  fs.readdir(dir, (err, files) => {
+	      if ( ! err )
+		  updateHTML(files.length);
+	      setTimeout(update, 2000);
+	  });
+      }
+    </script>
+  </head>
+  <body onload="update()">
+    <img id = "testImage" src = "images/1.jpg" width=400 height=400 >
+  </body>
+</html>

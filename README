@@ -1,0 +1,10 @@
+Code for Critical Practices project three.
+
+To install:
+   `npm install`
+To run:
+   `npm start`
+
+This project runs inside of an Electron application. The entry point
+is `main.js`. `./images` contains some sample images of faces
+extracted from webcam images using the included Mathematica script.
