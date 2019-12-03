@@ -7,7 +7,7 @@ camera = cv2.VideoCapture(0)
 # The classifier we use. HAAR is slower than some other options, but
 # is more accurate. We can tune this later.
 faceCascade = cv2.CascadeClassifier(
-    cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+	"/home/pi/opencv/data/haarcascades/haarcascade_frontalface_default.xml")
 
 while 1:
     # Read the current image from the webcam.
@@ -46,3 +46,4 @@ while 1:
 
     # Show the image with the rectanges drawn on it.
     cv2.imshow('webcam', img)
+    print("Frame.")
