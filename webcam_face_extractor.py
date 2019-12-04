@@ -39,11 +39,11 @@ while 1:
         # To write extracted face to file uncomment the line below
         # this and create a directory called "example_faces" where the
         # program will write the faces to.
-        # cv2.imwrite("example_faces/" + str(w) + str(h) + '_faces.jpg', colorFace)
+        cv2.imwrite(
+            "example_faces/" + str(w) + str(h) + '_faces.jpg', colorFace)
 
         # Draw a rectangle over the face.
         cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
     # Show the image with the rectanges drawn on it.
     cv2.imshow('webcam', img)
-    print("Frame.")
