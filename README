@@ -13,3 +13,12 @@ This project also contains a couple of different scripts for
 extracting faces from images. In order to use them you'll need to have
 openCV installed. I beleive that just running `pip install
 opencv-python` should do it.
+
+Running on the PI
+-----------------
+
+To run this code on our PI checkout the `PI` branch. Once you've done
+that you'll need to switch to the `cv` virtual enviroment by running:
+
+     `source ~/.profile`
+     `workon cv`
