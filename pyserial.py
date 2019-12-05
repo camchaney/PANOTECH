@@ -19,5 +19,5 @@ def send_command(ser, com):
 	except:
 		print("[error] serial failed to write.")
 		ser.close()
-		sleep(2)
+		sleep(5)
 		return send_command(get_serial(), com)

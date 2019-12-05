@@ -18,10 +18,11 @@ def make_webcam_face_getter():
     # Get dimensions of camera.
     width  = camera.get(3) # float
     height = camera.get(4) # float
-    
+
     def zoomer():
         success, img = camera.read()
-        
+        cv2.imshow('dog', img)
+
         if not success:
             print("[error] Could't read from webcam.")
             return
@@ -36,13 +37,16 @@ def make_webcam_face_getter():
 
         # Iterate over the found faces and write them away.
         for (x, y, w, h) in faces:
-            colorFace = img[y:y + h, x:x + w]
+#            colorFace = img[y:y + h, x:x + w]
             # To write extracted face to file uncomment the line below
             # this and create a directory called "example_faces" where the
             # program will write the faces to.
 #            cv2.imwrite("images/" + str(imageCount) + '.jpg', colorFace)
             cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        cv2.startWindowThread()
+        cv2.namedWindow('dog')
         cv2.imshow('dog', img)
+        camera.release()
         return faces
 
     return zoomer, width, height
