@@ -4,7 +4,7 @@ from webcam_face_extractor import make_webcam_face_getter
 from time import sleep
 
 def make_direction_decider(width):
-    DISTANCE_THRESHOLD = 0.25 * width
+    DISTANCE_THRESHOLD = 0.05 * width
 
     def decider(faces):
         try:
@@ -17,15 +17,17 @@ def make_direction_decider(width):
         print("found " + str(len(faces)) + " faces")
         # Find the face with the minimum distance from the center.
         # f[0] is its x cord, f[2] is its width.
-        target = max(faces, key=lambda f: abs(f[0] + f[2]/2 -
-                                              width/2))
+#        target = max(faces, key=lambda f: abs(f[0] + f[2]/2 -
+#                                              width/2))
+
+        target = max(faces, key=lambda f: f[2] * f[3])
         distance = target[0] + target[2] / 2 - width/2
 
         if abs(distance) > DISTANCE_THRESHOLD:
-            if distance < 0:
-                return "l"
-            else:
-                return "r"
+            if target[0] < width / 2:
+                return 'l'
+            if target[0] > width / 2:
+                return 'r'
         return "s"
 
     return decider
@@ -39,11 +41,14 @@ def main():
         faces = face_getter()
         command = controller(faces)
         print("[sending] " + command)
-#        ser = send_command(ser, command)
-#        if ( command == 'l' or command == 'r' ):
-#            ser = send_command(ser, 'd')
-#            print("sleeping for 20 seconds")
-#            sleep(10)
+        ser = send_command(ser, command)
+        # rest..
+        sleep(2)
+        if ( command == 'l' or command == 'r' ):
+            ser = send_command(ser, 'd')
+            # After this is sent, we need to give the
+            # machine some love and let it rest / do its work.
+            sleep(2)
 
 main()
 
