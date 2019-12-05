@@ -22,3 +22,8 @@ that you'll need to switch to the `cv` virtual enviroment by running:
 
      `source ~/.profile`
      `workon cv`
+
+In order to get electron working I needed to update the node and npm
+install because the Pi shipped with an old version of node. To do that
+I followed a tutorial here:
+   https://thisdavej.com/upgrading-to-more-recent-versions-of-node-js-on-the-raspberry-pi/
