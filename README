@@ -11,8 +11,13 @@ extracted from webcam images using the included Mathematica script.
 
 This project also contains a couple of different scripts for
 extracting faces from images. In order to use them you'll need to have
-openCV installed. I beleive that just running `pip install
-opencv-python` should do it.
+openCV installed: 
+
+	`pip install opencv-python`
+
+To communicate with the arduino you'll need pyserial. Install:
+
+	`pip install pyserial`
 
 Running on the PI
 -----------------
