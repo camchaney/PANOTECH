@@ -94,8 +94,8 @@ h2 {
 
 #warning img {
   position: fixed;
-  top: 30%;
-  left: 30%;
+  top: 25%;
+  left: 34%;
   margin-top: -50px;
   margin-left: -100px;
   height: 500px;
@@ -105,17 +105,22 @@ h2 {
 #text1 {
   position: absolute;
   top: 10%;
-  left:20%;
-  font-size: 60px;
+  left:10%;
+  font-size: 72px;
   color: white;
+  font-family: Rubik;
+  font-weight: 700;
 }
 
 #text2 {
   position: absolute;
-  top: 90%;
+  top: 70%;
   left: 20%;
-  font-size: 36px;
+  font-size: 42px;
   color: white;
+  font-family: Rubik;
+  font-weight: 300;
+  text-align: center;
 }
 
 #title {

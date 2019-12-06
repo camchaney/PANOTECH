@@ -5,7 +5,7 @@ import time
 imageCount = 0
 
 # Hooks up camera to the default video capture device.
-camera = cv2.VideoCapture(1)
+camera = cv2.VideoCapture(0)
 
 # The classifier we use. HAAR is slower than some other options, but
 # is more accurate. We can tune this later.
