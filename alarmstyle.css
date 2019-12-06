@@ -1,0 +1,23 @@
+body {
+ background-image: url(frame.svg);
+ background-repeat: no-repeat;
+ margin-left: 20px;
+}
+
+.overlay {
+  position: absolute; 
+  bottom: 16%;
+  left: -5.2%;
+  background: none;
+  color: #f1f1f1; 
+  width: 100%;
+  opacity:1;
+  color: white;
+  font-size: 100px;
+  padding: 50px;
+  text-align: center;
+}
+
+p{
+	font-size: 48px;
+}
