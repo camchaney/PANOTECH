@@ -1,62 +1,120 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
   <link rel="stylesheet" href="styles.css">
- 
-     <script language="javascript">
-      // Because this is running inside Electron we are allowed to use
-      // Node here.
-      const fs = require('fs');
-      // The directory that contains our images.
-      const dir = './images';
-      function newImage(numImages)
-      {
-       var imageElementsList = document.getElementsByClassName("testImage"); 
 
-        for (var i = 0; i < imageElementsList.length; i++) {
-          imageElementsList[i].src = dir + "/" + (numImages - i).toString() + ".jpg";
+<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
+
+
+  <script language="javascript">
+    // Because this is running inside Electron we are allowed to use
+    // Node here.
+    const fs = require('fs');
+    let imageCount = 0;
+    // The directory that contains our images.
+    const dir = './images';
+    let hideRequest = 0;
+    
+    function showDiv(numImages) {
+      console.log("Show");
+      hideRequest += 1;
+      var x = document.getElementById("warning");
+      x.style.display = 'block';
+      
+      var image = document.getElementById("fishdog");
+      image.src = dir + "/" + (numImages - 1).toString() + ".jpg"
+    }
+
+    function hideDiv() {
+      console.log("Hide");
+      hideRequest -= 1;
+      if (hideRequest === 0)
+      {
+        var x = document.getElementById("warning");
+        x.style.display = 'none';
       }
-  }
-
-  function update()
+    }
+    
+    function newImage(numImages) {
+      if (numImages != imageCount)
       {
-    // The function inside of this gets called asynchronously
-    // when fs has finished finding all of the images in dir.
-    fs.readdir(dir, (err, files) => {
-        if ( ! err )
-      newImage(files.length-1);
+        // Make the div visible.
+        showDiv(numImages);
+        imageCount = numImages;
+        setTimeout(hideDiv, 5000);
+      }
+
+      var imageElementsList = document.getElementsByClassName("testImage");
+
+      // We want to start at the highest number in the dir, populating the
+      // images in number order.
+      for (var i = 0; i < Math.min(imageElementsList.length, numImages); ++i)
+      {
+        imageElementsList[i].src = dir + "/" + (numImages  - 1 - i).toString() + ".jpg";
+      }
+    }
+
+    function update() {
+      // The function inside of this gets called asynchronously
+      // when fs has finished finding all of the images in dir.
+      fs.readdir(dir, (err, files) => {
+        if (!err)
+          newImage(files.length - 1);
         setTimeout(update, 2000);
-    });
-      }
+      });
+    }
 
-    </script>
-  </head>
-      <body>
-    <button class="example" onclick="update()">Click me to simulate function (replace this with web cam capture event / when files.length changes) </button>
-<br>
-    <!-- begin row -->
-    <div class="row">
-      <!-- column 1 -->
+  </script>
+</head>
+
+<body onload="update()">
+  <div id="warning"><div id="text1">INTRUDER DETECTED</div><img id = "fishdog" class="bebe"><div id="text2">YOUR PRIVACY COMES FIRST, ALWAYS.</div></div>
+  <br>
+  <div class="row">
+    <img id ="title" src="title.svg" width=100%>
+    <h2>Ensuring your safety and security, one face at a time.</h2><br>
+  </div> 
+  <!-- begin row -->
+  <div class="row">
+    <!-- column 1 -->
     <div class="column">
-    <!-- start most recent image -->
-    <img class="testImage" width=280 height=320 >
-    <!-- end most recent image -->
-    <img class="testImage"  width=280 height=320 >
-    <img class="testImage"  width=280 height=320 >
+      <div class="card">
+      <img class="testImage" width=280 height=320>
+    </div>
+      <div class="card">
+        <img class="testImage" width=280 height=320>
+      </div>
+      <div class="card">
+        <img class="testImage" width=280 height=320>
+      </div>
+    </div>
+    <!-- column 2 -->
+    <div class="column">
+      <div class="card">
+      <img class="testImage" width=280 height=320>
+    </div>
+      <div class="card">
+        <img class="testImage" width=280 height=320>
+      </div>
+      <div class="card">
+        <img class="testImage" width=280 height=320>
+      </div>
+    </div>
+    <!-- column 3 -->
+    <div class="column">
+      <div class="card">
+      <img class="testImage" width=280 height=320>
+    </div>
+      <div class="card">
+        <img class="testImage" width=280 height=320>
+      </div>
+      <div class="card">
+        <img class="testImage" width=280 height=320>
+      </div>
+    </div>
+    <!-- end row -->
   </div>
-  <!-- column 2 -->
-   <div class="column">
-    <img class="testImage" width=280 height=320 >
-    <img class="testImage"  width=280 height=320 >
-   <img class="testImage"  width=280 height=320 >
-  </div>
-  <!-- column 3 -->
-<div class="column">
-    <img class="testImage" width=280 height=320 >
-    <img class="testImage"  width=280 height=320 >
-    <img class="testImage"  width=280 height=320 >
-  </div>
-<!-- end row -->
-  </div>
-  </body>
+</body>
+
 </html>

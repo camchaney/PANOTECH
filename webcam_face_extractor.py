@@ -1,8 +1,11 @@
 # OpenCV program to detect face in real time from webcam footage.
 import cv2
+import time
+
+imageCount = 0
 
 # Hooks up camera to the default video capture device.
-camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(1)
 
 # The classifier we use. HAAR is slower than some other options, but
 # is more accurate. We can tune this later.
@@ -39,10 +42,15 @@ while 1:
         # To write extracted face to file uncomment the line below
         # this and create a directory called "example_faces" where the
         # program will write the faces to.
-        # cv2.imwrite("example_faces/" + str(w) + str(h) + '_faces.jpg', colorFace)
+        cv2.imwrite("images/" + str(imageCount) + '.jpg', colorFace)
+        print("WRITING A FACE :)")
+        imageCount += 1
 
         # Draw a rectangle over the face.
         cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
+        # Prevent too many duplicates.
+        time.sleep(5)
+
     # Show the image with the rectanges drawn on it.
-    cv2.imshow('webcam', img)
+    # cv2.imshow('webcam', img)

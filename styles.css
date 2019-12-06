@@ -1,6 +1,7 @@
 .row {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 20px;
 }
 
 button {
@@ -26,8 +27,7 @@ button {
 */}
 
 body {
- background-color: #000000;
- overflow-y: none;
+ background-color: white;
  margin-left: 20px;
 }
 
@@ -45,15 +45,20 @@ body {
   text-align: center;
 }
 
-img {
-	 box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+.card{
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  width: 90%;
+  border-radius: 8px;
+  margin-bottom: 30px;
 }
 
 h1 {
 	font-family: 'Rubik', sans-serif;
 	font-size: 72px;
 	color: #3393EC;
-	font-weight: 900;
+  font-weight: 900;
+  padding: 0;
+	margin: 0;
 }
 
 h4 {
@@ -65,9 +70,54 @@ h4 {
 
 h2 {
 	font-family: 'Rubik', sans-serif;
-	font-size: 36px;
+	font-size: 24px;
 	color: #3d3d3d;
 	font-weight: 500;
-	padding: none;
-	margin: none;
+	padding: 0;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+#warning {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: white;
+  z-index: 2;
+  display: none;
+}
+
+#warning img {
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  margin-top: -50px;
+  margin-left: -100px;
+  height: 500px;
+  width: 500px;
+}
+
+#text1 {
+  position: absolute;
+  top: 10%;
+  left:20%;
+  font-size: 60px;
+  color: white;
+}
+
+#text2 {
+  position: absolute;
+  top: 90%;
+  left: 20%;
+  font-size: 36px;
+  color: white;
+}
+
+#title {
+  margin-left: -15px;
 }
