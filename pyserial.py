@@ -1,6 +1,11 @@
 from time import sleep
 import serial
 
+# l - left
+# r - right
+# d - drive
+# s - stop
+
 def get_serial():
 	try:
 		return serial.Serial('/dev/ttyACM0', 9600)
