@@ -1,13 +1,23 @@
 from time import sleep
 import serial
-ser = serial.Serial('/dev/cu.usbmodem14301', 9600) # Establish the connection on a specific port
-counter = 32 # Below 32 everything in ASCII is gibberish
-while True:
-     counter +=1
-#     ser.write(str("l").encode('utf-8'))
-#     ser.write(str(chr(counter)).encode('utf-8')) # Convert the decimal number to ASCII then send it to the Arduino
-     ser.write(str("r").encode('utf-8'))
-     print(ser.readline()) # Read the newest output from the Arduino
-     sleep(.1) # Delay for one tenth of a second
-     if counter == 255:
-          counter = 32
+
+# l - left
+# r - right
+# d - drive
+# s - stop
+
+def get_serial():
+	try:
+		return serial.Serial('/dev/ttyACM0', 9600)
+	except:
+		return serial.Serial('/dev/ttyACM1', 9600)
+
+def send_command(ser, com):
+	try:
+		ser.write(com.encode('utf-8'))
+		return ser
+	except:
+		print("[error] serial failed to write.")
+		ser.close()
+		sleep(5)
+		return send_command(get_serial(), com)

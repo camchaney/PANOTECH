@@ -11,5 +11,32 @@ extracted from webcam images using the included Mathematica script.
 
 This project also contains a couple of different scripts for
 extracting faces from images. In order to use them you'll need to have
-openCV installed. I beleive that just running `pip install
-opencv-python` should do it.
+openCV installed: 
+
+	`pip install opencv-python`
+
+To communicate with the arduino you'll need pyserial. Install:
+
+	`pip install pyserial`
+
+Running on the PI
+-----------------
+
+To run this code on our PI checkout the `PI` branch. Once you've done
+that you'll need to switch to the `cv` virtual enviroment by running:
+
+     `source ~/.profile`
+     `workon cv`
+
+In order to get electron working I needed to update the node and npm
+install because the Pi shipped with an old version of node. To do that
+I followed a tutorial here:
+   https://thisdavej.com/upgrading-to-more-recent-versions-of-node-js-on-the-raspberry-pi/
+
+Electron install
+----------------
+
+There is a bug in the electron install script so you've got to specify
+the archetecture that you're installing electron on. To do so:
+
+    `npm install --arch=armv7l electron`
