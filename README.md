@@ -1,6 +1,5 @@
 <h1 align="center">
 
-![Logo](LOGO.png)
 <img src="LOGO.png" alt="Panotech Logo" width="200px"/>
 
 PANOTECH
