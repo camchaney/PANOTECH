@@ -6,12 +6,15 @@ PANOTECH
 
 </h1><h4 align="center">
 
-A critique of public survalence & Final project for Fall 2019
+A critique of public survalence & final project for Fall 2019
 Critical Practices.
 
-- Zeke, Alyssa, Cameron, and Serena.
+- Zeke, [Alyssa](https://www.ayang.co/), [Cameron](https://www.linkedin.com/in/camchaney/), and [Serena](https://www.serenakchan.me/).
 
+<img src="Final_Image.png" alt="Fully Assembled" width="600px"/>
 </h4>
+
+
 
 Install.
 --------
