@@ -11,7 +11,7 @@ Critical Practices.
 
 - Zeke, [Alyssa](https://www.ayang.co/), [Cameron](https://www.linkedin.com/in/camchaney/), and [Serena](https://www.serenakchan.me/).
 
-<img src="Final_Image.png" alt="Fully Assembled" width="600px"/>
+<img src="Final_Image.png" alt="Fully Assembled" width="500px"/>
 </h4>
 
 
