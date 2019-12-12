@@ -31,9 +31,24 @@ void loop() {
         delay(100);
         TheDriver.turnRight();
         break;
+      case 'l1':
+        TheDriver.stopDrill();
+        delay(100);
+        TheDriver.turnLeft();
+        break;
+      case 'r1':
+        TheDriver.stopDrill();
+        delay(100);
+        TheDriver.turnRight();
+        break;
       case 'd':
         TheDriver.driveDrill();
         delay(200);
+        TheDriver.stopDrill();
+        break;
+      case 'd1':
+        TheDriver.driveDrill();
+        delay(100);
         TheDriver.stopDrill();
         break;
       case 's':
