@@ -24,10 +24,15 @@ def make_direction_decider(width):
         distance = target[0] + target[2] / 2 - width/2
 
         if abs(distance) > DISTANCE_THRESHOLD:
-            if target[0] < width / 2:
+            if target[0] < width / 4:
                 return 'l'
-            if target[0] > width / 2:
+            elif target[0] <= width / 2:
+                return 'l1'  #smaller
+            if target[0] > (3*width / 4):
                 return 'r'
+            elif target[0] >= width / 2:
+                return 'r1'  # smaller
+            # Now trying a different mode of smaller movement
         return "s"
 
     return decider
@@ -49,7 +54,11 @@ def main():
             # After this is sent, we need to give the
             # machine some love and let it rest / do its work.
             sleep(2)
+        elif ( command == 'l1' or command == 'r1' ):
+            ser = send_command(ser, 'd1') # d1 is for a smaller movement
+            # After this is sent, we need to give the
+            # machine some love and let it rest / do its work.
+            sleep(2)
 
 main()
-
 
